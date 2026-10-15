@@ -163,6 +163,8 @@ address{font-family:var(--display);font-style:normal;font-size:1.7rem;line-heigh
 .role:hover .num{color:var(--sage)}
 .role:hover .arrow{transform:translate(4px,-4px)}
 
+.follow{text-align:center;margin:44px 0 0;font-size:1.05rem}
+
 /* Footer */
 .footer{background:var(--ink);color:var(--paper);padding:clamp(48px,7vw,88px) var(--gutter) 28px}
 .footer-grid{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:center}
