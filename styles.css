@@ -58,7 +58,7 @@ p{margin:0 0 1em}
 
 /* Hero */
 .hero{max-width:var(--max);margin:0 auto;padding:clamp(28px,5vw,64px) var(--gutter) clamp(40px,6vw,88px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center}
-.hero h1{font-size:clamp(4rem,10.5vw,9rem);color:var(--ink)}
+.hero h1{font-size:clamp(3rem,6.6vw,6rem);line-height:1;color:var(--ink)}
 .hero h1 em{color:var(--brick)}
 .hero-sub{font-family:var(--display);font-style:italic;font-size:clamp(1.6rem,3.2vw,2.6rem);color:var(--moss);margin:.3em 0 1.1em;font-weight:400}
 .lede{font-size:1.2rem;max-width:34ch;margin-bottom:1.6em}
@@ -193,7 +193,6 @@ address{font-family:var(--display);font-style:normal;font-size:1.7rem;line-heigh
 /* Visit + contact, combined */
 .visit-sub{font-family:var(--display);font-size:1.4rem;line-height:1.25;margin:18px 0 0;opacity:.9}
 .contact{margin-top:clamp(48px,6vw,80px)}
-.contact-title{font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.08;max-width:none;margin-bottom:clamp(28px,4vw,44px)}
 
 /* Reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
