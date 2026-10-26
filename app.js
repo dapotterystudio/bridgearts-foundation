@@ -13,6 +13,13 @@
     var open = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(open));
   });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    }
+  });
   nav.addEventListener('click', function (e) {
     if (e.target.tagName === 'A') {
       nav.classList.remove('open');
@@ -47,7 +54,7 @@
 
   // Gentle reveal on scroll (skipped if the visitor prefers reduced motion)
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var targets = document.querySelectorAll('.section-head, .split, .pillars li, .event, .mosaic figure, .stats, .floor, .newsletter-inner, .visit-card, .role');
+  var targets = document.querySelectorAll('.section-head, .split, .pillars li, .event, .mosaic figure, .stats, .floor, .visit-card, .role');
   if (reduce || !('IntersectionObserver' in window)) return;
   targets.forEach(function (el) { el.classList.add('reveal'); });
   var io = new IntersectionObserver(function (entries) {

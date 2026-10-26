@@ -20,9 +20,10 @@ p{margin:0 0 1em}
 .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:10px 16px;z-index:100;border-radius:var(--radius)}
 .skip:focus{left:8px}
 :focus-visible{outline:2px solid var(--brick);outline-offset:3px}
+.visit-card :focus-visible,.footer :focus-visible,.floor-basement :focus-visible{outline-color:var(--paper)}
 
 /* Header */
-.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px var(--gutter);background:rgba(244,237,225,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));background:rgba(244,237,225,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
 .site-header.scrolled{border-bottom-color:var(--line)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand img{width:52px;height:52px}
@@ -30,8 +31,8 @@ p{margin:0 0 1em}
 .brand-text strong{font-family:var(--display);font-size:1.3rem;font-weight:600;letter-spacing:-.01em}
 .brand-text em{font-family:var(--mono);font-style:normal;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
 .nav{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);font-size:.95rem}
-.nav a{text-decoration:none;position:relative}
-.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav a{text-decoration:none;position:relative;padding:10px 0}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .nav a:not(.btn):hover::after{transform:scaleX(1)}
 .nav-toggle{display:none;background:none;border:0;width:44px;height:44px;padding:0;cursor:pointer;position:relative}
 .nav-toggle span{position:absolute;left:11px;right:11px;height:2px;background:var(--ink);transition:transform .25s,top .25s}
@@ -45,13 +46,13 @@ p{margin:0 0 1em}
 .btn-small{padding:10px 20px;font-size:.92rem}
 .btn-light{background:var(--paper);color:var(--ink)}
 .btn-light:hover{background:#fff;color:var(--brick)}
-.link-arrow{font-weight:500;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .2s}
+.link-arrow{display:inline-block;font-weight:500;text-decoration:none;border-bottom:1px solid currentColor;padding:8px 0 2px;transition:color .2s}
 .link-arrow:hover{color:var(--brick)}
 .link-arrow.light:hover{color:#fff}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
 
 .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 22px}
-.eyebrow.light{color:rgba(244,237,225,.75)}
+.eyebrow.light{color:rgba(244,237,225,.88)}
 .muted{color:var(--ink-soft);max-width:56ch}
 .fine{font-size:.88rem;color:var(--ink-soft)}
 .center{text-align:center;margin-top:36px}
@@ -113,13 +114,14 @@ p{margin:0 0 1em}
 
 /* Floors */
 .house{padding-bottom:clamp(40px,5vw,64px)}
-.community{padding-top:0}
+.community{padding-top:0;padding-bottom:clamp(40px,5vw,64px)}
 
 
 /* Visit */
 .visit{padding-top:0}
-.visit-card{background:var(--moss);color:var(--paper);border-radius:12px;padding:clamp(32px,6vw,80px);display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,5vw,72px);align-items:end}
-.visit-card h2{color:var(--paper);font-size:clamp(2.2rem,4.6vw,3.8rem)}
+.visit-card>*{min-width:0}
+.visit-card{background:var(--moss);color:var(--paper);border-radius:12px;padding:clamp(32px,6vw,80px);display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.visit-card h2{color:var(--paper);font-size:clamp(1.8rem,3.3vw,2.8rem);line-height:1.12}
 .visit-card h2 em{color:#d9e1b4}
 address{font-family:var(--display);font-style:normal;font-size:1.7rem;line-height:1.25;margin-bottom:1em}
 .visit-info p{opacity:.85;max-width:38ch}
@@ -139,16 +141,16 @@ address{font-family:var(--display);font-style:normal;font-size:1.7rem;line-heigh
 
 /* Footer */
 .footer{background:var(--ink);color:var(--paper);padding:clamp(48px,7vw,88px) var(--gutter) 28px}
-.footer-grid{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:center}
+.footer-grid{max-width:calc(var(--max) - 2*var(--gutter));margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:center}
 .footer-brand{display:flex;align-items:center;gap:24px}
 .footer-brand img{width:120px;height:120px}
 .footer-brand p{margin:0 0 4px;opacity:.8}
 .footer-name{font-family:var(--display);font-size:1.9rem;opacity:1!important;color:var(--paper)}
 .footer-name em{font-weight:400}
 .footer-nav{display:flex;flex-wrap:wrap;gap:12px 28px}
-.footer-nav a{text-decoration:none;opacity:.85}
+.footer-nav a{text-decoration:none;opacity:.85;padding:10px 0}
 .footer-nav a:hover{opacity:1;text-decoration:underline}
-.footer-fine{max-width:var(--max);margin:56px auto 0;font-size:.8rem;opacity:.6;border-top:1px solid rgba(244,237,225,.2);padding-top:20px}
+.footer-fine{max-width:calc(var(--max) - 2*var(--gutter));margin:56px auto 0;font-size:.8rem;opacity:.6;border-top:1px solid rgba(244,237,225,.2);padding-top:20px}
 
 /* Purpose */
 .purpose h2{font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.04}
@@ -179,26 +181,23 @@ address{font-family:var(--display);font-style:normal;font-size:1.7rem;line-heigh
 .floor-basement{background:var(--ink);color:var(--paper);min-height:280px}
 .floor-ground{background:var(--sage);color:#1f2610;min-height:370px}
 .floor-upstairs{background:var(--brick);color:var(--paper);min-height:460px}
-.floor .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;opacity:.8;margin:0}
+.floor .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;opacity:.95;margin:0}
 .floor h3{font-size:clamp(2.6rem,4.4vw,3.8rem)}
 .tenants{list-style:none;margin:18px 0 0;padding:0}
 .tenants li{font-family:var(--display);font-size:1.5rem;line-height:1.2;padding:12px 0;border-top:1px solid rgba(244,237,225,.35)}
 .floor-ground .tenants li{border-top-color:rgba(31,38,16,.3)}
 
-/* 2027 + newsletter */
-.newsletter{padding-top:0}
-.newsletter-inner{border-top:1px solid var(--line);padding-top:clamp(40px,6vw,72px);max-width:960px}
-.newsletter h2{font-size:clamp(1.9rem,3.8vw,3.1rem);line-height:1.12}
-.newsletter .muted{margin:24px 0 28px;font-size:1.1rem}
-.signup{display:flex;flex-wrap:wrap;gap:12px;max-width:560px}
-.signup input{flex:1 1 260px;min-width:0;font:inherit;padding:14px 22px;border-radius:999px;border:1px solid var(--ink);background:rgba(255,255,255,.5);color:var(--ink)}
-.signup input::placeholder{color:var(--ink-soft)}
+/* Newsletter form (lives in the green card) */
+.signup{display:flex;flex-wrap:wrap;gap:12px;max-width:520px}
+.signup input{flex:1 1 220px;width:100%;min-width:0;font:inherit;padding:14px 22px;border-radius:999px;border:1px solid rgba(244,237,225,.6);background:rgba(244,237,225,.1);color:var(--paper)}
+.signup input::placeholder{color:rgba(244,237,225,.88)}
 .signup .btn{border:0;cursor:pointer;font-family:inherit}
-.signup-note{margin:14px 0 0;font-size:.92rem;color:var(--ink-soft);min-height:1.4em}
+.signup-note{margin:12px 0 0;font-size:.92rem;opacity:.85;min-height:1.4em}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Visit + contact, combined */
-.visit-sub{font-family:var(--display);font-size:1.4rem;line-height:1.25;margin:18px 0 0;opacity:.9}
+.visit-sub{font-family:var(--display);font-size:1.25rem;line-height:1.3;margin:20px 0 24px;opacity:.9}
+.visit-place{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,2.2vw,1.8rem);line-height:1.25;margin:0 0 1em;max-width:24ch}
 .contact{margin-top:clamp(48px,6vw,80px)}
 
 /* Reveal */
@@ -237,6 +236,12 @@ address{font-family:var(--display);font-style:normal;font-size:1.7rem;line-heigh
   .event{aspect-ratio:4/3}
   .footer-brand{flex-direction:column;align-items:flex-start}
   .hero-photo figcaption{display:none}
+}
+@media (max-width:380px){
+  .hero h1{font-size:2.7rem}
+  .btn{padding:14px 22px}
+  .visit-card{padding:28px 22px}
+  .signup .btn{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
