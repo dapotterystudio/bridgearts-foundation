@@ -192,7 +192,8 @@ address{font-family:var(--display);font-style:normal;font-size:1.7rem;line-heigh
 
 /* Visit + contact, combined */
 .visit-sub{font-family:var(--display);font-size:1.4rem;line-height:1.25;margin:18px 0 0;opacity:.9}
-.contact{margin-top:clamp(40px,5vw,64px)}
+.contact{margin-top:clamp(48px,6vw,80px)}
+.contact-title{font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.08;max-width:none;margin-bottom:clamp(28px,4vw,44px)}
 
 /* Reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
